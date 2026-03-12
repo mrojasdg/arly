@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribuidores - ARLY</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="header-wrapper">
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="top-contact">
+                    <a href="tel:5555603409"><i data-lucide="phone"></i> 55 5560 3409 / 55 5360 3312</a>
+                    <a href="https://wa.me/525523582111" target="_blank"
+                        style="display: flex; align-items: center; gap: 0.5rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        55 2358 2111</a>
+                    <a href="mailto:ventas@arly.com.mx"><i data-lucide="mail"></i> ventas@arly.com.mx</a>
+                </div>
+                <div class="top-social">
+                    <a href="https://www.facebook.com/ARLYescolares" target="_blank"><i data-lucide="facebook"></i></a>
+                    <a href="https://www.instagram.com/arlyescolares/" target="_blank"><i
+                            data-lucide="instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <header class="navbar">
+            <div class="container navbar-container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo-arly.png" alt="ARLY Logo" class="logo-img">
+                </a>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="nosotros.html" class="nav-link">Nosotros</a>
+                    <a href="productos.html" class="nav-link">Productos</a>
+                    <a href="distribuidores.html" class="nav-link active">Distribuidores</a>
+                </nav>
+                <a href="contacto.html" class="btn btn-red btn-sm nav-btn desktop-only">Contacto</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <main>
+        <!-- Hero Section B2B -->
+        <section class="hero b2b-hero"
+            style="background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('arly_warehouse_b2b_1772128417345.png'); background-size: cover; background-position: center;">
+            <div class="container hero-container" style="grid-template-columns: 1fr;">
+                <div class="hero-content text-center" style="transform: none; max-width: 900px; margin: 0 auto;">
+                    <div class="hero-badge" style="margin: 0 auto 2rem;">
+                        <i data-lucide="trending-up"></i> Oportunidad de Negocio
+                    </div>
+                    <h1 class="hero-title">Impulsa tu Crecimiento con <br><span class="highlight">Socios de
+                            Confianza</span></h1>
+                    <p class="hero-subtitle" style="margin-left: auto; margin-right: auto;">
+                        Únete a la red de distribuidores de ARLY y lleva productos escolares y de oficina de alta
+                        calidad a todo México con márgenes competitivos.
+                    </p>
+                </div>
+            </div>
+            <div class="hero-wave">
+                <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                    <path
+                        d="M0,50 C150,100 350,0 600,50 C850,100 1050,0 1200,50 C1350,100 1440,50 1440,50 L1440,100 L0,100 Z"
+                        fill="#ffffff"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Nuestra Red de Distribución Section -->
+        <section class="section">
+            <div class="container">
+                <div class="about-content" style="gap: 5rem;">
+                    <div class="about-text">
+                        <span class="badge-pill">Presencia</span>
+                        <h3>Nuestra Red de Distribución</h3>
+                        <p>Contamos con una infraestructura logística robusta diseñada para abastecer a mayoristas y
+                            distribuidores en cada rincón del país. Nuestra capacidad de producción asegura un
+                            suministro constante de los productos más demandados en el mercado escolar y de oficina.</p>
+                        <p>Al convertirte en distribuidor ARLY, te integras a una cadena de valor que prioriza la
+                            eficiencia, la puntualidad y el respaldo directo del fabricante.</p>
+                    </div>
+                    <div class="about-image-wrapper">
+                        <img src="images/bodegaarly.jpg" alt="Red de distribución Arly" class="about-mascot"
+                            style="max-width: 100%; border-radius: 30px; box-shadow: var(--shadow-hover);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ¿Por qué distribuir Arly? -->
+        <section class="essence-section" style="background-color: #f8fafc;">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge-pill">Ventajas</span>
+                    <h2 class="section-title">¿Por qué distribuir Arly?</h2>
+                    <p class="section-desc">Beneficios estratégicos diseñados para asegurar la rentabilidad de tu
+                        negocio.</p>
+                </div>
+                <div class="essence-grid">
+                    <div class="essence-card">
+                        <div class="essence-icon"><i data-lucide="shield-check"></i></div>
+                        <h4>Marca Consolidada</h4>
+                        <p>Respaldo de más de 30 años en el mercado mexicano.</p>
+                    </div>
+                    <div class="essence-card">
+                        <div class="essence-icon"><i data-lucide="percent"></i></div>
+                        <h4>Márgenes de Utilidad</h4>
+                        <p>Precios de fábrica competitivos para maximizar tus ganancias.</p>
+                    </div>
+                    <div class="essence-card">
+                        <div class="essence-icon"><i data-lucide="truck"></i></div>
+                        <h4>Suministro Estable</h4>
+                        <p>Fabricación propia que garantiza inventario disponible.</p>
+                    </div>
+                    <div class="essence-card">
+                        <div class="essence-icon"><i data-lucide="thumbs-up"></i></div>
+                        <h4>Calidad de Fabricante</h4>
+                        <p>Control total sobre la calidad de cada producto entregado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beneficios Comerciales Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Beneficios Comerciales</h2>
+                    <p class="section-desc">Condiciones exclusivas para nuestros aliados estratégicos.</p>
+                </div>
+                <div class="benefit-list">
+                    <div class="benefit-item">
+                        <i data-lucide="check-circle" style="width: 24px; height: 24px;"></i>
+                        <div>
+                            <h4>Asesoría Personalizada</h4>
+                            <p>Ejecutivos de cuenta dedicados a optimizar tu portafolio de productos.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <i data-lucide="check-circle" style="width: 24px; height: 24px;"></i>
+                        <div>
+                            <h4>Material de Apoyo</h4>
+                            <p>Acceso a catálogos digitales, muestras físicas y material promocional para punto de
+                                venta.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <i data-lucide="check-circle" style="width: 24px; height: 24px;"></i>
+                        <div>
+                            <h4>Esquemas de Crédito</h4>
+                            <p>Opciones de financiamiento sujetas a historial comercial y volumen operativo.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <i data-lucide="check-circle" style="width: 24px; height: 24px;"></i>
+                        <div>
+                            <h4>Garantía Directa</h4>
+                            <p>Respuesta inmediata del fabricante ante cualquier incidencia técnica o de calidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proceso para ser distribuidor -->
+        <section id="proceso" class="section" style="background-color: #f1f5f9;">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge-pill">Pasos</span>
+                    <h2 class="section-title">Proceso para ser Distribuidor</h2>
+                    <p class="section-desc">Un camino claro y profesional para iniciar nuestra alianza comercial.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-step">
+                        <div class="timeline-content">
+                            <span class="timeline-number">01</span>
+                            <h4>Solicitud Inicial</h4>
+                            <p>Completa el formulario de contacto con la información básica de tu empresa.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-content">
+                            <span class="timeline-number">02</span>
+                            <h4>Revisión de Perfil</h4>
+                            <p>Nuestro equipo comercial analiza tu solicitud y zona de influencia operativa.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-content">
+                            <span class="timeline-number">03</span>
+                            <h4>Propuesta Comercial</h4>
+                            <p>Presentamos los esquemas de precios y condiciones de compra por volumen.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-content">
+                            <span class="timeline-number">04</span>
+                            <h4>Alta y Primer Pedido</h4>
+                            <p>Formalizamos la alianza y gestionamos tu primer pedido para iniciar operaciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Contacto -->
+        <section id="contacto-b2b" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge-pill">Registro</span>
+                    <h2 class="section-title">Formulario de Aplicación</h2>
+                    <p class="section-desc">Inicia hoy el proceso para convertirte en socio comercial de ARLY.</p>
+                </div>
+                <div class="form-card">
+                    <form id="b2b-form" class="form-grid" action="send_b2b.php" method="POST">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Nombre de la Empresa</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Empresa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rfc">RFC</label>
+                            <input type="text" id="rfc" name="rfc" placeholder="RFC de la empresa">
+                        </div>
+                        <div class="form-group">
+                            <label for="ciudad">Ciudad / Estado</label>
+                            <input type="text" id="ciudad" name="ciudad" placeholder="Ej. CDMX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tel">Teléfono</label>
+                            <input type="tel" id="tel" name="tel" placeholder="10 dígitos" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="negocio">Tipo de Negocio</label>
+                            <select id="negocio" name="negocio">
+                                <option value="mayorista">Mayorista Papelero</option>
+                                <option value="distribuidor">Distribuidor de Oficina</option>
+                                <option value="gobierno">Proveedor de Gobierno</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="volumen">Volumen Estimado Mensual</label>
+                            <select id="volumen" name="volumen">
+                                <option value="pequeno">$5,000 - $20,000 MXN</option>
+                                <option value="medio">$20,000 - $100,000 MXN</option>
+                                <option value="alto">Más de $100,000 MXN</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="mensaje">Mensaje / Comentarios Adicionales</label>
+                            <textarea id="mensaje" name="mensaje" rows="4"
+                                placeholder="Cuéntanos más sobre tu interés..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <button type="submit" class="btn btn-red btn-shine" style="width: 100%;">Enviar
+                                Solicitud</button>
+                        </div>
+                    </form>
+                    <div id="form-status" class="form-message"></div>
+                    <p class="legal-text text-center">Tus datos están protegidos bajo nuestro aviso de privacidad.
+                        Únicamente serán utilizados con fines comerciales y de seguimiento de asociación.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="section cta-section" style="background-color: var(--color-primary);">
+            <div class="container cta-container">
+                <h2 class="text-white">¿Listo para expandir tu catálogo con lo mejor de México?</h2>
+                <p class="text-white" style="opacity: 0.8;">Cientos de socios ya están transformando su mercado regional
+                    con Arly.</p>
+                <div class="hero-actions" style="justify-content: center; margin-top: 2rem;">
+                    <a href="#contacto-b2b" class="btn btn-white btn-shine">Solicitar Asociación</a>
+                    <a href="nosotros.html" class="btn btn-white-outline"
+                        style="background: transparent; color: white; border: 1px solid white;">Conocer más sobre
+                        nosotros</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container newsletter-container">
+                <div class="newsletter-left">
+                    <div class="newsletter-icon-box">
+                        <i data-lucide="send"></i>
+                    </div>
+                    <div class="newsletter-text">
+                        <h3>Mantente Informado</h3>
+                        <p>Suscríbete y recibe novedades y promociones.</p>
+                    </div>
+                </div>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit" class="btn-newsletter">
+                        Suscribirse <i data-lucide="send"></i>
+                    </button>
+                    <div id="newsletter-status" class="form-message"
+                        style="width: 100%; margin-top: 10px; font-size: 0.9rem;"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo-arly.png" alt="ARLY Logo" class="footer-logo">
+                <p>Organización ARLY S.A. de C.V. - Más de 30 años fabricando productos escolares y de oficina de
+                    calidad. 100% Mexicano.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/ARLYescolares" target="_blank" aria-label="Facebook"><i
+                            data-lucide="facebook"></i></a>
+                    <a href="https://www.instagram.com/arlyescolares/" target="_blank" aria-label="Instagram"><i
+                            data-lucide="instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="distribuidores.html">Distribuidores</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="#">Pizarrones</a></li>
+                    <li><a href="#">Reglas de Aluminio</a></li>
+                    <li><a href="#">Reglas de Madera</a></li>
+                    <li><a href="#">Juegos Geométricos</a></li>
+                    <li><a href="#">Borradores</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <ul class="contact-list">
+                    <li>
+                        <i data-lucide="phone" class="contact-icon"></i>
+                        <div class="contact-info">
+                            <span>55 5560 3409</span>
+                            <span>55 5360 3312</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="contact-icon"
+                            style="color: var(--color-secondary); display: flex; align-items: center; justify-content: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </div>
+                        <a href="https://wa.me/525523582111" target="_blank"
+                            style="color: inherit; text-decoration: none;">55 2358 2111 (WhatsApp)</a>
+                    </li>
+                    <li>
+                        <i data-lucide="mail" class="contact-icon"></i>
+                        <span>ventas@arly.com.mx</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container bottom-content">
+                <p>&copy; 2026 Organización ARLY S.A. de C.V. Todos los derechos reservados.</p>
+                <p class="made-in">Hecho en <span class="flag-mx">MX</span> México</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
