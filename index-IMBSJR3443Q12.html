@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 
@@ -380,4 +381,388 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARLY - Artículos Escolares y de Oficina</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons (Lucide) - Using SVG sprites or similar approach if needed, but for vanilla we'll use a CDN or inline SVGs. I'll use inline SVGs or a font icon library if requested, but for now I'll stick to a simple SVG approach inside the HTML where needed. Or I can use a script tag for Lucide. -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="header-wrapper">
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="top-contact">
+                    <a href="tel:5555603409"><i data-lucide="phone"></i> 55 5560 3409 / 55 5360 3312</a>
+                    <a href="https://wa.me/525523582111" target="_blank"><i data-lucide="message-circle"></i> 55 2358
+                        2111</a>
+                    <a href="mailto:ventas@arly.com.mx"><i data-lucide="mail"></i> ventas@arly.com.mx</a>
+                </div>
+                <div class="top-social">
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <header class="navbar">
+            <div class="container navbar-container">
+                <a href="#" class="logo">
+                    <img src="images/logo-arly.png" alt="ARLY Logo" class="logo-img">
+                </a>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="#nosotros" class="nav-link">Nosotros</a>
+                    <a href="#productos" class="nav-link">Productos</a>
+                    <a href="#" class="nav-link">Distribuidores</a>
+                    <a href="#" class="nav-link">Blog</a>
+                    <a href="#contacto" class="btn btn-red btn-sm nav-btn mobile-only">Contáctanos</a>
+                </nav>
+                <a href="#contacto" class="btn btn-red btn-sm nav-btn desktop-only">Contáctanos</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i data-lucide="award"></i> Producto 100% Mexicano
+                    </div>
+                    <h1 class="hero-title">
+                        Especialistas en <br>
+                        <span class="highlight">Artículos Escolares</span> <br>
+                        y de Oficina
+                    </h1>
+                    <p class="hero-subtitle">
+                        Más de 30 años fabricando productos de calidad para estudiantes y profesionales en México.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#productos" class="btn btn-red btn-shine">
+                            Ver Catálogo
+                            <i data-lucide="arrow-right" class="btn-icon"></i>
+                        </a>
+                        <a href="#contacto" class="btn btn-white-outline">
+                            Contáctanos
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/hero-products.png" alt="Productos ARLY" class="hero-img-content float-animation">
+                </div>
+            </div>
+            <!-- hero-shape removed as it is not in the design -->
+            <div class="hero-wave">
+                <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                    <path
+                        d="M0,50 C150,100 350,0 600,50 C850,100 1050,0 1200,50 C1350,100 1440,50 1440,50 L1440,100 L0,100 Z"
+                        fill="#ffffff">
+                    </path>
+                </svg>
+            </div>
+        </section>
+
+
+        <!-- About Us Section -->
+        <section id="nosotros" class="section about-section">
+            <div class="container">
+                <div class="about-header">
+                    <span class="badge-pill">Sobre Nosotros</span>
+                    <h2 class="section-title">Conoce ARLY</h2>
+                    <p class="section-subtitle">
+                        Somos una empresa 100% mexicana dedicada a la fabricación y distribución de
+                        artículos escolares y de oficina de la más alta calidad.
+                    </p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-image-wrapper">
+                        <img src="images/mascot-arly.png" alt="Mascota Arly" class="about-mascot">
+                    </div>
+                    <div class="about-text">
+                        <h3>Organización ARLY S.A. de C.V.</h3>
+                        <p>
+                            Desde nuestra fundación, nos hemos dedicado a fabricar productos de calidad para el
+                            sector educativo y empresarial. Nuestros borradores, pizarrones, reglas y juegos de
+                            geometría son reconocidos en todo México por su durabilidad y excelente desempeño.
+                        </p>
+                        <p>
+                            Trabajamos con materiales de primera calidad como aluminio anodizado, madera de pino
+                            seleccionada y plásticos seguros para garantizar productos que cumplan con las
+                            necesidades de estudiantes y profesionales.
+                        </p>
+
+                        <div class="about-features-grid">
+                            <div class="about-feature">
+                                <div class="about-feature-icon">
+                                    <i data-lucide="factory"></i>
+                                </div>
+                                <div class="about-feature-text">
+                                    <h4>Fabricación Nacional</h4>
+                                    <p>Todos nuestros productos son fabricados en México con materiales de primera
+                                        calidad.</p>
+                                </div>
+                            </div>
+                            <div class="about-feature">
+                                <div class="about-feature-icon">
+                                    <i data-lucide="shield-check"></i>
+                                </div>
+                                <div class="about-feature-text">
+                                    <h4>Calidad Garantizada</h4>
+                                    <p>Más de 30 años respaldando la calidad de nuestros productos escolares y de
+                                        oficina.</p>
+                                </div>
+                            </div>
+                            <div class="about-feature">
+                                <div class="about-feature-icon">
+                                    <i data-lucide="users"></i>
+                                </div>
+                                <div class="about-feature-text">
+                                    <h4>Amplia Distribución</h4>
+                                    <p>Red de distribuidores en todo México para llevar nuestros productos a cada
+                                        rincón.</p>
+                                </div>
+                            </div>
+                            <div class="about-feature">
+                                <div class="about-feature-icon">
+                                    <i data-lucide="leaf"></i>
+                                </div>
+                                <div class="about-feature-text">
+                                    <h4>Compromiso Ambiental</h4>
+                                    <p>Productos diseñados para reducir la contaminación y cuidar el medio ambiente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features/Categories Section -->
+        <section id="productos" class="section products">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge">Nuestros Productos</span>
+                    <h2 class="section-title">Calidad que inspira</h2>
+                    <p class="section-desc">Explora nuestra variedad de artículos diseñados para el aprendizaje y la
+                        productividad.</p>
+                </div>
+
+                <div class="product-grid">
+                    <!-- Product Card 1 -->
+                    <div class="card product-card">
+                        <div class="card-icon blue">
+                            <i data-lucide="pen-tool"></i>
+                        </div>
+                        <h3 class="card-title">Escritura</h3>
+                        <p class="card-desc">Lápices, bolígrafos y marcadores de alta precisión.</p>
+                        <a href="#" class="card-link">Ver más <i data-lucide="arrow-right"></i></a>
+                    </div>
+
+
+                    <!-- Product Card 2 -->
+                    <div class="card product-card">
+                        <div class="card-icon red">
+                            <i data-lucide="ruler"></i>
+                        </div>
+                        <h3 class="card-title">Geometría</h3>
+                        <p class="card-desc">Juegos geométricos, reglas y compases duraderos.</p>
+                        <a href="#" class="card-link">Ver más <i data-lucide="arrow-right"></i></a>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="card product-card">
+                        <div class="card-icon yellow">
+                            <i data-lucide="eraser"></i>
+                        </div>
+                        <h3 class="card-title">Borradores</h3>
+                        <p class="card-desc">Borradores de migajón y plásticos libres de PVC.</p>
+                        <a href="#" class="card-link">Ver más <i data-lucide="arrow-right"></i></a>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="card product-card">
+                        <div class="card-icon purple">
+                            <i data-lucide="scissors"></i>
+                        </div>
+                        <h3 class="card-title">Manualidades</h3>
+                        <p class="card-desc">Tijeras, pegamentos y materiales creativos.</p>
+                        <a href="#" class="card-link">Ver más <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Distributors/Find Products Section -->
+        <section class="section distributors-section">
+            <div class="container distributors-container">
+                <div class="distributors-content">
+                    <h2 class="section-title">Encuentra Nuestros <br><span class="highlight-red">Productos</span></h2>
+                    <p class="section-description">
+                        Contamos con una amplia red de distribuidores autorizados en todo México.
+                        Encuentra el más cercano a ti y adquiere productos ARLY de calidad.
+                    </p>
+                    <a href="#" class="btn btn-primary">Quiero ser Distribuidor</a>
+                </div>
+                <div class="distributors-features">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper bg-blue-light">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Cobertura Nacional</h4>
+                            <p>Distribuidores en los 32 estados de la República Mexicana.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper bg-red-light">
+                            <i data-lucide="phone-call"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Atención Personalizada</h4>
+                            <p>Nuestro equipo está listo para atenderte y asesorarte.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper bg-green-light">
+                            <i data-lucide="package"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Mayoreo y Menudeo</h4>
+                            <p>Precios especiales para compras al mayoreo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container newsletter-content">
+                <div class="newsletter-left">
+                    <div class="newsletter-icon">
+                        <i data-lucide="send"></i>
+                    </div>
+                    <div class="newsletter-text">
+                        <h3>Mantente Informado</h3>
+                        <p>Suscríbete. Recibe novedades y promociones.</p>
+                    </div>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirse <i data-lucide="send"></i></button>
+                </form>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section cta-section">
+            <div class="container cta-container">
+                <h2>¿Listo para equipar tu escuela u oficina?</h2>
+                <p>Contáctanos para conocer nuestros precios de mayoreo y distribución.</p>
+                <a href="#contacto" class="btn btn-white btn-shine">Solicitar Cotización</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contacto" class="footer">
+        <div class="container footer-grid">
+            <!-- Col 1: Brand & Social -->
+            <div class="footer-brand">
+                <a href="#" class="logo-footer">
+                    <img src="images/logo-arly.png" alt="ARLY" class="logo-img-footer">
+                </a>
+                <p>Organización ARLY S.A. de C.V. - Más de 30 años fabricando productos escolares y de oficina de
+                    calidad. 100% Mexicano.</p>
+                <div class="footer-social">
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+
+                </div>
+            </div>
+
+            <!-- Col 2: Enlaces Rápidos -->
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#">Distribuidores</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Categorías -->
+            <div class="footer-links">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="#">Pizarrones</a></li>
+                    <li><a href="#">Reglas de Aluminio</a></li>
+                    <li><a href="#">Reglas de Madera</a></li>
+                    <li><a href="#">Juegos Geométricos</a></li>
+                    <li><a href="#">Borradores</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contacto -->
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <ul class="contact-list">
+                    <li>
+                        <i data-lucide="phone"></i>
+                        <div class="contact-info">
+                            <span>55 5560 3409</span>
+                            <span>55 5360 3312</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i data-lucide="message-circle"></i>
+                        <a href="https://wa.me/525523582111" target="_blank"
+                            style="color: inherit; text-decoration: none;">55 2358 2111 (WhatsApp)</a>
+                    </li>
+                    <li>
+                        <i data-lucide="mail"></i>
+                        <span>ventas@arly.com.mx</span>
+                    </li>
+                    <li>
+                        <i data-lucide="map-pin"></i>
+                        <span>Ciudad de México, México</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ARLY. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Start Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+
+>>>>>>> cf3dbd9cbfc38fdc0655fd2db3d47a04242c3344
 </html>

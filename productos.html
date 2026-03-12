@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 
@@ -1454,4 +1455,1462 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - ARLY</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Specific Styles for Products Page */
+        .products-filter-section {
+            padding: 4rem 0 2rem;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3.5rem;
+            border-radius: 50px;
+            border: 2px solid #e2e8f0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+        }
+
+        .category-tabs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .category-tabs {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .category-tabs {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        .category-btn {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 1.25rem;
+            border-radius: 24px;
+            font-weight: 600;
+            color: #0f172a;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .category-img-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #ffffff;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .category-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-btn:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .category-btn:hover .category-img-wrapper {
+            transform: scale(1.1);
+        }
+
+        .category-btn.active {
+            background: #fef2f2;
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.1);
+        }
+
+        .category-btn.active .category-img-wrapper {
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 4rem 0;
+            min-height: 400px;
+        }
+
+        @media (min-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .product-card-horizontal {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f1f5f9;
+        }
+
+        @media (min-width: 640px) {
+            .product-card-horizontal {
+                flex-direction: row;
+            }
+        }
+
+        .product-card-horizontal:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-img-container {
+            background: #f8fafc;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 100%;
+            min-height: 240px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 640px) {
+            .product-img-container {
+                width: 280px;
+                min-height: 100%;
+            }
+        }
+
+        .product-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .product-info {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #eff6ff;
+            color: #3b82f6;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .product-description {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .versions-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .versions-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .version-pill {
+            padding: 0.4rem 0.8rem;
+            background: #ffffff;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 5rem 2rem;
+            color: #94a3b8;
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            opacity: 0.5;
+        }
+
+        .initial-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 5rem 2rem;
+            color: #64748b;
+        }
+
+        .initial-message h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        /* Carousel Styles */
+        .product-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+            padding: 10px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--color-primary);
+            transform: scale(1.2);
+        }
+
+        .product-img-container.has-carousel {
+            padding: 0;
+        }
+
+        /* Zoom Effect Styles */
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+            cursor: zoom-in;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoom-container img {
+            transition: transform 0.2s ease-out, transform-origin 0.05s ease-out;
+            pointer-events: none;
+            /* Let the container handle events */
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .zoom-container.zoomed {
+            cursor: zoom-out;
+        }
+
+        .product-carousel .zoom-container {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-wrapper">
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="top-contact">
+                    <a href="tel:5555603409"><i data-lucide="phone"></i> 55 5560 3409 / 55 5360 3312</a>
+                    <a href="https://wa.me/525523582111" target="_blank"
+                        style="display: flex; align-items: center; gap: 0.5rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        55 2358 2111</a>
+                    <a href="mailto:ventas@arly.com.mx"><i data-lucide="mail"></i> ventas@arly.com.mx</a>
+                </div>
+                <div class="top-social">
+                    <a href="https://www.facebook.com/ARLYescolares" target="_blank"><i data-lucide="facebook"></i></a>
+                    <a href="https://www.instagram.com/arlyescolares/" target="_blank"><i
+                            data-lucide="instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <header class="navbar">
+            <div class="container navbar-container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo-arly.png" alt="ARLY Logo" class="logo-img">
+                </a>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="nosotros.html" class="nav-link">Nosotros</a>
+                    <a href="productos.html" class="nav-link active">Productos</a>
+                    <a href="distribuidores.html" class="nav-link">Distribuidores</a>
+                </nav>
+                <a href="contacto.html" class="btn btn-red btn-sm nav-btn desktop-only">Contacto</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <main>
+        <!-- Filter and Search Section -->
+        <section class="products-filter-section">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 2rem;">
+                    <span class="badge-pill">Nuestro Catálogo</span>
+                    <h2 class="section-title">Explora Nuestros Productos</h2>
+                    <p class="section-desc">Encuentra la solución perfecta para tus necesidades escolares y de oficina.
+                    </p>
+                </div>
+
+                <div class="search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="product-search" class="search-input"
+                        placeholder="Buscar por nombre, categoría o etiqueta...">
+                </div>
+
+                <div class="category-tabs" id="category-tabs">
+                    <button class="category-btn" data-category="madera">
+                        <div class="category-img-wrapper">
+                            <img src="images/cat-madera.png" alt="Línea de Madera" class="category-img"
+                                onerror="this.src='https://via.placeholder.com/100?text=Madera'">
+                        </div>
+                        <span>Línea de Madera</span>
+                    </button>
+                    <button class="category-btn" data-category="pizarrones">
+                        <div class="category-img-wrapper">
+                            <img src="images/cat-pizarrones.png" alt="Línea de Pizarrones" class="category-img"
+                                onerror="this.src='https://via.placeholder.com/100?text=Pizarrones'">
+                        </div>
+                        <span>Línea de Pizarrones</span>
+                    </button>
+                    <button class="category-btn" data-category="aluminio">
+                        <div class="category-img-wrapper">
+                            <img src="images/cat-aluminio.png" alt="Línea de Aluminio" class="category-img"
+                                onerror="this.src='https://via.placeholder.com/100?text=Aluminio'">
+                        </div>
+                        <span>Línea de Aluminio</span>
+                    </button>
+                    <button class="category-btn" data-category="rotafolios">
+                        <div class="category-img-wrapper">
+                            <img src="images/cat-rotafolios.png" alt="Rotafolios" class="category-img"
+                                onerror="this.src='https://via.placeholder.com/100?text=Rotafolios'">
+                        </div>
+                        <span>Rotafolios</span>
+                    </button>
+                    <button class="category-btn" data-category="borradores">
+                        <div class="category-img-wrapper">
+                            <img src="images/cat-borradores.png" alt="Borradores" class="category-img"
+                                onerror="this.src='https://via.placeholder.com/100?text=Borradores'">
+                        </div>
+                        <span>Borradores</span>
+                    </button>
+                    <button class="category-btn" data-category="ecologica">
+                        <div class="category-img-wrapper">
+                            <img src="images/cat-ecologica.png" alt="Línea Ecológica" class="category-img"
+                                onerror="this.src='https://via.placeholder.com/100?text=Ecológica'">
+                        </div>
+                        <span>Línea Ecológica</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Listing Section -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div id="products-container" class="products-grid">
+                    <!-- Initial State Message -->
+                    <div class="initial-message">
+                        <i data-lucide="mouse-pointer-click"
+                            style="width: 48px; height: 48px; margin-bottom: 1.5rem; color: var(--color-primary);"></i>
+                        <h3>Selecciona una categoría</h3>
+                        <p>Haz clic en los botones de arriba para explorar nuestro catálogo de productos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container newsletter-container">
+                <div class="newsletter-left">
+                    <div class="newsletter-icon-box">
+                        <i data-lucide="send"></i>
+                    </div>
+                    <div class="newsletter-text">
+                        <h3>Mantente Informado</h3>
+                        <p>Suscríbete y recibe novedades y promociones.</p>
+                    </div>
+                </div>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit" class="btn-newsletter">
+                        Suscribirse <i data-lucide="send"></i>
+                    </button>
+                    <div id="newsletter-status" class="form-message"
+                        style="width: 100%; margin-top: 10px; font-size: 0.9rem;"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo-arly.png" alt="ARLY Logo" class="footer-logo">
+                <p>Organización ARLY S.A. de C.V. - Más de 30 años fabricando productos escolares y de oficina de
+                    calidad. 100% Mexicano.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/ARLYescolares" target="_blank" aria-label="Facebook"><i
+                            data-lucide="facebook"></i></a>
+                    <a href="https://www.instagram.com/arlyescolares/" target="_blank" aria-label="Instagram"><i
+                            data-lucide="instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="distribuidores.html">Distribuidores</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="#">Pizarrones</a></li>
+                    <li><a href="#">Reglas de Aluminio</a></li>
+                    <li><a href="#">Reglas de Madera</a></li>
+                    <li><a href="#">Juegos Geométricos</a></li>
+                    <li><a href="#">Borradores</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <ul class="contact-list">
+                    <li>
+                        <i data-lucide="phone" class="contact-icon"></i>
+                        <div class="contact-info">
+                            <span>55 5560 3409</span>
+                            <span>55 5360 3312</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="contact-icon"
+                            style="color: var(--color-secondary); display: flex; align-items: center; justify-content: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </div>
+                        <a href="https://wa.me/525523582111" target="_blank"
+                            style="color: inherit; text-decoration: none;">55 2358 2111 (WhatsApp)</a>
+                    </li>
+                    <li>
+                        <i data-lucide="mail" class="contact-icon"></i>
+                        <span>ventas@arly.com.mx</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container bottom-content">
+                <p>&copy; 2026 Organización ARLY S.A. de C.V. Todos los derechos reservados.</p>
+                <p class="made-in">Hecho en <span class="flag-mx">MX</span> México</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Data Script -->
+    <script>
+        const productsData = [
+            // Línea de Madera
+            {
+                id: 'm1',
+                name: "Regla L recta de corte",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Escuadra en forma de L ideal para trazos precisos a 90° en dibujo técnico y escolar.",
+                image: "images/productos/madera-regla-l-arly.jpg",
+                versions: ["19 cm"],
+                tags: ["madera", "regla", "escolar", "pino"]
+            },
+            {
+                id: 'm2',
+                name: "Regla curva para sastre",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Plantilla curva para patronaje y confección, facilita trazos suaves y definidos.",
+                image: "images/productos/curva-sastre-arly.jpg",
+                versions: ["79 cm"],
+                tags: ["sastre", "madera", "pizarrón", "profesor"]
+            },
+            {
+                id: 'm3',
+                name: "Curva Francesa",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Regla Curva Francesa diseñada para lograr curvas suaves y exactas, facilita el trabajo en proyectos de dibujo, diseño y confección.",
+                image: "images/productos/curva-francesa-arly.jpg",
+                versions: ["62 cm", "MDF"],
+                tags: ["madera", "geométrico", "pizarrón"]
+            },
+            {
+                id: 'm4',
+                name: "Regla mini L",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Regla Mini “L” fabricada en madera con graduación en centímetros. Ideal para trazos precisos de 90° en trabajos escolares, manualidades y dibujo técnico.",
+                image: "images/productos/regla-mini-l-arly.jpg",
+                versions: ["21cm de alto x 12cm de ancho", "Madera de pino"],
+                tags: ["matemáticas", "madera", "escolar", "niños"]
+            },
+            {
+                id: 'm5',
+                name: "Reglas de madera",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Regla estándar de madera con graduación clara para mediciones exactas.",
+                images: [
+                    "images/productos/reglamadera-20.jpg",
+                    "images/productos/reglamadera-30.jpg",
+                    "images/productos/reglamadera-40.jpg",
+                    "images/productos/reglamadera-50.jpg",
+                    "images/productos/reglamadera-60.jpg",
+                    "images/productos/reglamadera-100.jpg"],
+                versions: ["20cm", "30cm", "40cm", "50cm", "60cm", "100cm"],
+                tags: ["dibujo", "madera", "colores"]
+            },
+            {
+                id: 'm6',
+                name: "Transportador de Madera",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Instrumento semicircular para medir y trazar ángulos con precisión.",
+                image: "images/productos/transportador-arly.jpg",
+                versions: ["33cm"],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+            {
+                id: 'm7',
+                name: "Escuadra de 45°",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Escuadra triangular para ángulos de 45° y 90°, ideal en geometría.",
+                image: "images/productos/escuadra-45-arly.jpg",
+                versions: ["32cm"],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+            {
+                id: 'm8',
+                name: "Escuadra de 60°",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Escuadra técnica para trazos de 30°, 60° y 90° en dibujo y diseño.",
+                image: "images/productos/escuadra-60-arly.jpg",
+                versions: ["44cm"],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+            {
+                id: 'm9',
+                name: "Compás para gis",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Compás escolar para trazar circunferencias con gis en pizarrón.",
+                image: "images/productos/compas-para-gis-arly.jpg",
+                versions: ["Diámetro de 60cm"],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+            {
+                id: 'm10',
+                name: "Regla Milimétrica",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Regla con escala milimétrica detallada para máxima precisión.",
+                image: "images/productos/regla-milimetrica-arly.jpg",
+                versions: ["Diámetro de 60cm"],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+            {
+                id: 'm11',
+                name: "Regla T",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Regla T para trazos horizontales exactos en dibujo técnico.",
+                image: "images/productos/regla-t-arly.jpg",
+                versions: ["40cm", "50cm", "60cm"],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+            {
+                id: 'm12',
+                name: "Juego de geometría",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Set escolar gigante para pizarrón con reglas y escuadras de alta visibilidad.",
+                image: "images/productos/juego-geometria-madera-arly.jpg",
+                versions: ["Incluye 5 piezas"],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+            {
+                id: 'm13',
+                name: "Compás de plumón",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Compás para marcadores, ideal para circunferencias visibles en pizarrón.",
+                image: "images/productos/compas-de-plumon.jpg",
+                versions: ["Diámetro de 60cm"],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+            {
+                id: 'm14',
+                name: "Pantógrafo",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Herramienta articulada para ampliar o reducir dibujos con exactitud.",
+                image: "images/productos/pantografo-arly.jpg",
+                versions: [""],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+            {
+                id: 'm15',
+                name: "Juego de Mini “L” y Curva Francesa",
+                category: "madera",
+                catLabel: "Madera",
+                description: "El complemento perfecto para trazos precisos y acabados profesionales. Fabricadas con material resistente y ligero, son fáciles de manejar y perfectas para estudiantes, diseñadores, arquitectos o amantes del dibujo técnico.",
+                image: "images/productos/juegofrancesa.jpg",
+                versions: ["Juego de dos piezas"],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+            {
+                id: 'm16',
+                name: "Longímetro",
+                category: "madera",
+                catLabel: "Madera",
+                description: "Herramienta tradicional y resistente, ideal para mediciones precisas de telas, carpintería, construcción, y trabajos escolares. Fabricado en madera sólida con graduación clara y fácil de leer, tiene en sus extremos aluminio para mantener su forma.",
+                images: [
+                    "images/productos/longimetro.jpg",
+                    "images/productos/longimetro-2.jpg",
+                ],
+                versions: ["Madera"],
+                tags: ["arquitectura", "madera", "planos"]
+            },
+
+
+
+            // Línea de Pizarrones
+            {
+                id: 'p1',
+                name: "Pizzarrón blanco económico",
+                category: "pizarrones",
+                catLabel: "Pizarrones",
+                description: "Superficie especial que optimiza tus espacios de trabajo, enseñanza ó creatividad, diseñado para ofrecer máxima durabilidad y facilidad de limpieza.",
+                image: "images/productos/pizzaron-blanco-economico-arly.jpg",
+                versions: ["30x45 cm", "45x60 cm", "60x90 cm", "60x120 cm", "90x120 cm", "Pregunta por tamaños especiales"],
+                tags: ["blanco", "magnético", "pizarrón", "oficina"]
+            },
+            {
+                id: 'p2',
+                name: "Pizarrón Blanco Premium",
+                category: "pizarrones",
+                catLabel: "Pizarrones",
+                description: "Su superficie especial permite eliminar fácilmente las marcas de plumón permanente utilizando alcohol ó solventes suaves, sin dejar manchas ni sombras. Es la opción ideal para entornos de uso constante como oficinas, aulas, sala de juntas y áreas de capacitación.",
+                image: "images/productos/pizzaron-blanco-premium-arly.jpg",
+                versions: ["60x120 cm", "90x150 cm", "90x180 cm", "120x180 cm", "120x240 cm", "Pregunta por tamaños especiales"],
+                tags: ["blanco", "plumon", "pizarrón", "escolar"]
+            },
+            {
+                id: 'p3',
+                name: "Pizzarón verde",
+                category: "pizarrones",
+                catLabel: "Pizarrones",
+                description: "Su superficie mate ofrece excelente contraste con gis blanco o de color, facilitando la lectura y reduciendo el reflejo. El clásico que nunca pasa de moda, ideal para academias, oficinas y espacios de capacitación.",
+                image: "images/productos/pizzaron-verde-arly.jpg",
+                versions: ["30x45 cm", "45x60 cm", "60x90 cm", "60x120 cm", "90x120 cm", "Pregunta por tamaños especiales"],
+                tags: ["verde", "escuela", "oficina", "hogar"]
+            },
+            {
+                id: 'p4',
+                name: "Pizarrón de corcho",
+                category: "pizarrones",
+                catLabel: "Pizarrones",
+                description: "Hecho con corcho auténtico para que tus notas, fotos y recordatorios se mantengan firmes, y con un elegante marco de aluminio que combina con cualquier estilo. Ideal para tu oficina, tu casa o tu escuela.",
+                image: "images/productos/pizzarron-corcho-arly.jpg",
+                versions: ["30x45 cm", "45x60 cm", "60x90 cm", "60x120 cm", "90x120 cm", "Pregunta por tamaños especiales"],
+                tags: ["corcho", "avisos", "pizarrón", "decorativo"]
+            },
+            {
+                id: 'p5',
+                name: "Pizarrón Mixto (Blanco/Corcho)",
+                category: "pizarrones",
+                catLabel: "Pizarrones",
+                description: "El pizarrón 2 en 1 que tu espacio necesita. Por un lado, corcho natural para colocar recordatorios, fotos o ideas; por el otro, superficie blanca lista para escribir con plumón, incluso permanente, ya que se limpia fácilmente con alcohol o solventes.",
+                image: "images/productos/pizarron-mixto-arly.jpg",
+                versions: ["30x45 cm", "45x60 cm", "60x90 cm", "60x120 cm", "90x120 cm", "Pregunta por tamaños especiales"],
+                tags: ["mixto", "blanco", "corcho", "práctico"]
+            },
+            {
+                id: 'p6',
+                name: "Pizarrón de marco de plástico",
+                category: "pizarrones",
+                catLabel: "Pizarrones",
+                description: "Su superficie blanca permite escribir con plumón de agua y borrar fácilmente con el borrador incluido, o bien usar plumón permanente, que se limpia sin problema con alcohol o algún solvente. Ideal para niños que aprenden, para papás que organizan y para profesionales que buscan un aliado portátil y versátil. Un pizarrón que se adapta a todos. Incluye el mini borrador.",
+                images: [
+                    "images/productos/pizzarron-marco-plastico.jpg",
+                    "images/productos/pizzaron-infantil.jpg",
+                    "images/productos/pizzaron-infantil-2.jpg"],
+                versions: ["20x30 cm", "30x40 cm", "40x60 cm", "Dos piezas", "Pregunta por tamaños especiales"],
+                tags: ["Plástico", "moderno", "premium", "pizarrón"]
+            },
+
+            // Línea de Aluminio
+            {
+                id: 'a1',
+                name: "Regla de aluminio",
+                category: "aluminio",
+                catLabel: "Aluminio",
+                description: "Material metálico duradero con borde recto para cortes y trazos precisos.",
+                images: [
+                    "images/productos/reglaluminio.jpg",
+                    "images/productos/reglaluminio-30.jpg",
+                    "images/productos/reglaluminio-40.jpg",
+                    "images/productos/reglaluminio-50.jpg",
+                    "images/productos/reglaluminio-60.jpg"],
+                versions: ["20 cm", "30 cm", "40 cm", "50 cm", "60 cm"],
+                tags: ["aluminio", "regla", "profesional", "ingeniería"]
+            },
+            {
+                id: 'a2',
+                name: "Regla mini de aluminio",
+                category: "aluminio",
+                catLabel: "Aluminio",
+                description: "Herramientas de bolsillo prácticas para trazos rápidos y portabilidad extrema.",
+                images: [
+                    "images/productos/reglamini-aluminio-10.png",
+                    "images/productos/reglamini-aluminio-15.png",
+                    "images/productos/reglamini-aluminio-20.png",
+                    "images/productos/reglamini-aluminio-30.png"],
+                versions: ["10 cm", "15 cm", "20 cm", "30 cm"],
+                tags: ["aluminio", "escuadra", "técnico"]
+            },
+            {
+                id: 'a3',
+                name: "Escalímetro",
+                category: "aluminio",
+                catLabel: "Aluminio",
+                description: "Regla triangular multiescala para lectura de planos arquitectónicos y técnicos.",
+                images: [
+                    "images/productos/escalimetro-15.png",
+                    "images/productos/escalimetro-30.png"],
+                versions: ["15 cm", "30 cm"],
+                tags: ["aluminio", "exhibidor", "marcos"]
+            },
+            {
+                id: 'a4',
+                name: "Tipómetro",
+                category: "aluminio",
+                catLabel: "Aluminio",
+                description: "Accesorio de escritorio moderno y duradero fabricado en aluminio sólido.",
+                image: "images/productos/tipometro.jpg",
+                versions: ["30 cm"],
+                tags: ["aluminio", "escritorio", "oficina"]
+            },
+
+
+
+            // Rotafolios
+            {
+                id: 'r1',
+                name: "Rotafolio Didáctico",
+                category: "rotafolios",
+                catLabel: "Rotafolios",
+                description: "El aliado perfecto para aprender jugando. Estructura de madera resistente con dos superficies: un lado para gis y otro blanco para plumón. Ideal para estimular la creatividad y el aprendizaje en casa o la escuela.",
+                images: [
+                    "images/productos/rotafolio.jpg",
+                    "images/productos/rotafolio-2.jpg",
+                    "images/productos/rotafolio-3.jpg",
+                    "images/productos/rotafolio-4.jpg"
+                ],
+                versions: ["Madera"],
+                tags: ["rotafolios", "exposición", "conferencia"]
+            },
+
+
+            // Borradores
+            {
+                id: 'b1',
+                name: "Borrador Económico",
+                category: "borradores",
+                catLabel: "Borradores",
+                description: "Elaborado en base de plástico en diferentes colores y con fieltro estriado que por su textura y su forma son únicos en el mercado ya que logra una excelente absorción del polvo de gis, logrando disminuir considerablemente la contaminación ambiental.",
+                images: [
+                    "images/productos/borrador-economico-arly.jpg",
+                    "images/productos/borrador-economico-arly-2.jpg",
+                ],
+                versions: ["Plástico"],
+                tags: ["borrador", "gis", "tradicional"]
+            },
+            {
+                id: 'b2',
+                name: "Borrador con Imán",
+                category: "borradores",
+                catLabel: "Borradores",
+                description: "Fabricado con base de plástico color rojo con imán en sus extremos con fieltro estriado el cual favorece la absorción de los pigmentos de los marcadores. Ideal para pizarrones magnéticos.",
+                images: [
+                    "images/productos/borrador-con-iman.jpg",
+                    "images/productos/borrador-con-iman-2.jpg",
+                ],
+                versions: ["Plástico"],
+                tags: ["borrador", "blanco", "magnético"]
+            },
+            {
+                id: 'b3',
+                name: "Mini Borrador",
+                category: "borradores",
+                catLabel: "Borradores",
+                description: "Elaborado en base de madera y fieltro de medida 4.5 x 8.5 cms aprox. Fácil de usar por su tamaño. Ideal para utilizarlo con cualquiera de nuestros pizarrones.",
+                image: "images/productos/borrador-mini.jpg",
+                versions: ["1 pieza", "Paquete de 5"],
+                tags: ["borrador", "lápiz", "escolar"]
+            },
+
+
+            // Línea Ecológica
+            {
+                id: 'e1',
+                name: "Alhajero",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Caja compacta con compartimentos para resguardo seguro de joyería y accesorios.",
+                image: "images/productos/alhajero.jpg",
+                versions: ["madera"],
+                tags: ["eco", "reciclado", "alhajero", "sustentable"]
+            },
+            {
+                id: 'e2',
+                name: "Caja de madera",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Caja para almacenamiento pequeño o proyectos de arte.",
+                image: "images/productos/caja-de-madera.jpg",
+                versions: ["Con perforación", "Tipo Canasta"],
+                tags: ["eco", "reciclado", "lápiz"]
+            },
+            {
+                id: 'e3',
+                name: "Caja porta Six",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Organizador con divisiones internas ideal para transportar o presentar seis unidades.",
+                images: [
+                    "images/productos/caja-portasix.png",
+                    "images/productos/caja-portasix1.png",
+                    "images/productos/caja-portasix2.png",
+                ],
+                versions: ["MDF"],
+                tags: ["eco", "bambú", "regla"]
+            },
+            {
+                id: 'e4',
+                name: "Caja de madera contenedor",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Solución de almacenamiento robusta en MDF para organizar suministros diversos.",
+                images: [
+                    "images/productos/caja-contenedor1.png",
+                    "images/productos/caja-contenedor.png",
+                ],
+                versions: ["10x10x9 cm", "3.5x14x14 cm", "25x25x8 cm", "15x25x15 cm"],
+                tags: ["eco", "bioplástico", "pen"]
+            },
+            {
+                id: 'e5',
+                name: "Caja de regalo",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Empaque rígido y reutilizable de alta calidad para presentaciones especiales.",
+                image: "images/productos/cajaregalo1.png",
+                versions: ["10x10x6 cm", "15x15x8 cm", "20x15x8 cm", "20x20x8 cm", "40x28x21 cm"],
+                tags: ["eco", "oficina", "sin metal"]
+            },
+            {
+                id: 'e5',
+                name: "Caja tipo canasta",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Canasta de madera con base de MDF ligero, resistente con agarre. Ideal para regalos, dulceros, decoración, joyeros, especiero, macetero, etc.",
+                image: "images/productos/caja-canasta.png",
+                versions: ["madera"],
+                tags: ["eco", "oficina", "sin metal"]
+            },
+            {
+                id: 'e6',
+                name: "Caja de botella",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Caja protectora elegante diseñada para botellas con espacio extra para accesorios.",
+                image: "images/productos/estuche-botella.jpg",
+                versions: ["MDF"],
+                tags: ["eco", "madera", "marcador", "agua"]
+            },
+            {
+                id: 'e6',
+                name: "Caja con perforación",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Conteneros de madera con base de MDF resistente, con detalles lineales. Ideal para ocuparlo en casa, restaurantes, oficina, eventos sociales, etc.",
+                image: "images/productos/caja-con-perforacion.png",
+                versions: ["Madera"],
+                tags: ["eco", "madera", "marcador", "agua"]
+            },
+            {
+                id: 'e6',
+                name: "Caja multiusos",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Organiza o decora con estilo y funcionalidad. Esta caja cuenta con compartimiento superior con tapa y un práctico cajón frontal con perilla para su fácil apertura. Ideal para guardar accesorios, documentos, joyería, cosmetiquera, incluso para arreglo de flores, cualquier idea que puedas tener en mente.",
+                image: "images/productos/caja-multiusos.png",
+                versions: ["MDF"],
+                tags: ["eco", "madera", "marcador", "agua"]
+            },
+            {
+                id: 'e7',
+                name: "Huacal de madera",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Contenedor rústico de madera natural, ideal para recuerdos, bolos o decoración de mesas.",
+                images: [
+                    "images/productos/huacal.jpg",
+                    "images/productos/huacal-10.png",
+                    "images/productos/huacal-10x15.png",
+                    "images/productos/huacal-25.png",
+                    "images/productos/huacal-30.png",
+                ],
+                versions: ["10x10 cm", "10x15 cm", "15x15 cm", "20x20 cm", "25x25 cm", "30x30 cm"],
+                tags: ["eco", "madera", "marcador", "agua"]
+            },
+            {
+                id: 'e8',
+                name: "Huacal de madera grande",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Contenedor rústico de madera natural, ideal para recuerdos, bolos o decoración de mesas.",
+                images: [
+                    "images/productos/huacal.png",
+                    "images/productos/huacal-grande2.png",
+                    "images/productos/huacal-grande3.png",
+                ],
+                versions: ["15x29x40 cm"],
+                tags: ["eco", "madera", "marcador", "agua"]
+            },
+            {
+                id: 'e9',
+                name: "Letrero pizarrón negro",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Mini pizarra de sobremesa ideal para señalización de precios, nombres o eventos pequeño",
+                image: "images/productos/Letrero-pizarron.jpg",
+                versions: ["9x12 cm", "1/2 carta"],
+                tags: ["eco", "madera", "marcador", "agua"]
+            },
+            {
+                id: 'e10',
+                name: "Clipera",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Fabricado de madera con dos imanes en su interior para sujetar y dejar al alcance los clips u objetos metálicos. Ideal para organizar tu espacio de trabajo.",
+                images: [
+                    "images/productos/clipera.png",
+                    "images/productos/clipera2.png",
+                ],
+                versions: ["Madera"],
+                tags: ["eco", "madera", "marcador", "agua"]
+            },
+            {
+                id: 'e11',
+                name: "Portacelular",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Diseñado para colocar tu celular y mantener en un solo lugar tus objetos personales como llaves, cartera, lentes o accesorios, cuenta con una ranura especial para tu reloj. Perfecto para escritorio, buró o área de trabajo.",
+                image: "images/productos/portacelular.png",
+                versions: ["MDF"],
+                tags: ["eco", "madera", "marcador", "agua"]
+            },
+            {
+                id: 'e12',
+                name: "Organizador multiusos",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Organizador en torre de MDF de alta calidad, ecológico, ligero, minimalista. Ideal para organizar útiles escolares, herramientas de trabajo, especiero, maquillaje o cualquier objeto que tengas en mente.",
+                images: [
+                    "images/productos/organizador.png",
+                    "images/productos/organizador2.png",
+                    "images/productos/organizador3.png",
+                    "images/productos/organizador4.png",
+                ],
+                versions: ["MDF"],
+                tags: ["eco", "madera", "marcador", "agua"]
+            },
+            {
+                id: 'e13',
+                name: "Portalápices",
+                category: "ecologica",
+                catLabel: "Línea Ecológica",
+                description: "Fabricado en madera, es ligero, elegante ideal para organizar tu área personal o de trabajo. Su uso no se limita a lápices o plumas también funciona como porta cubiertos, maceta, centro de mesa, mesa de dulces, etc.",
+                image: "images/productos/portalapices.png",
+                versions: ["Madera"],
+                tags: ["eco", "madera", "marcador", "agua"]
+            }
+        ];
+    </script>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productsContainer = document.getElementById('products-container');
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const searchInput = document.getElementById('product-search');
+
+            let currentFilter = null;
+
+            // Render Products
+            const renderProducts = (filteredData) => {
+                if (filteredData.length === 0) {
+                    productsContainer.innerHTML = `
+                        <div class="no-results">
+                            <i data-lucide="search-x"></i>
+                            <h3>No encontramos resultados</h3>
+                            <p>Intenta con otros términos o cambia la categoría.</p>
+                        </div>
+                    `;
+                    lucide.createIcons();
+                    return;
+                }
+
+                productsContainer.innerHTML = filteredData.map(product => {
+                    const hasCarousel = product.images && product.images.length > 0;
+                    const imgContent = hasCarousel ? `
+                        <div class="product-carousel" data-id="${product.id}">
+                            <div class="carousel-track">
+                                ${product.images.map(img => `
+                                    <div class="carousel-slide">
+                                        <img src="${img}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="carousel-dots">
+                                ${product.images.map((_, i) => `
+                                    <button class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : `
+                        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">
+                    `;
+
+                    return `
+                    <article class="product-card-horizontal">
+                        <div class="product-img-container ${hasCarousel ? 'has-carousel' : ''}">
+                            ${imgContent}
+                        </div>
+                        <div class="product-info">
+                            <span class="product-badge">${product.catLabel}</span>
+                            <h3 class="product-title">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            
+                            <span class="versions-label">Versiones disponibles:</span>
+                            <div class="versions-pills">
+                                ${product.versions.map(v => `<span class="version-pill">${v}</span>`).join('')}
+                            </div>
+                        </div>
+                    </article>
+                `;
+                }).join('');
+
+                lucide.createIcons();
+                initCarousels();
+                initZoomEffect();
+            };
+
+            // Zoom Effect Logic
+            const initZoomEffect = () => {
+                const containers = document.querySelectorAll('.product-img-container, .carousel-slide');
+
+                containers.forEach(container => {
+                    // Avoid double initialization
+                    if (container.querySelector('.zoom-container')) return;
+
+                    const img = container.querySelector('img');
+                    if (!img) return;
+
+                    // Wrap img in a zoom container
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'zoom-container';
+                    img.parentNode.insertBefore(wrapper, img);
+                    wrapper.appendChild(img);
+
+                    let isZoomed = false;
+                    let initialDistance = -1;
+                    let touchStartTime = 0;
+
+                    const handleMove = (e) => {
+                        if (!isZoomed && e.type !== 'touchmove') return;
+
+                        const rect = wrapper.getBoundingClientRect();
+                        let x, y;
+
+                        // Check if it's a touch event or a mouse event
+                        if (e.touches && e.touches.length > 0) {
+                            x = e.touches[0].clientX - rect.left;
+                            y = e.touches[0].clientY - rect.top;
+                        } else if (e.clientX !== undefined) {
+                            x = e.clientX - rect.left;
+                            y = e.clientY - rect.top;
+                        } else if (e.changedTouches && e.changedTouches.length > 0) {
+                            x = e.changedTouches[0].clientX - rect.left;
+                            y = e.changedTouches[0].clientY - rect.top;
+                        } else {
+                            return;
+                        }
+
+                        const xPercent = (x / rect.width) * 100;
+                        const yPercent = (y / rect.height) * 100;
+
+                        img.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+                    };
+
+                    const zoomIn = (e) => {
+                        isZoomed = true;
+                        wrapper.classList.add('zoomed');
+                        img.style.transform = 'scale(3)'; // Zoom inicial potente (3x)
+                        if (e) handleMove(e);
+                    };
+
+                    const zoomOut = () => {
+                        isZoomed = false;
+                        wrapper.classList.remove('zoomed');
+                        img.style.transform = 'scale(1)';
+                        img.style.transformOrigin = 'center center';
+                        initialDistance = -1;
+                    };
+
+                    // Desktop Events
+                    wrapper.addEventListener('mouseenter', zoomIn);
+                    wrapper.addEventListener('mousemove', handleMove);
+                    wrapper.addEventListener('mouseleave', zoomOut);
+
+                    // Mobile Events (Touch to toggle, pan and pinch)
+                    wrapper.addEventListener('touchstart', (e) => {
+                        if (e.touches.length === 2) {
+                            initialDistance = Math.hypot(
+                                e.touches[0].pageX - e.touches[1].pageX,
+                                e.touches[0].pageY - e.touches[1].pageY
+                            );
+                            if (!isZoomed) zoomIn(e.touches[0]);
+                        } else {
+                            touchStartTime = Date.now();
+                            if (isZoomed) {
+                                handleMove(e);
+                            }
+                        }
+                    }, { passive: true });
+
+                    wrapper.addEventListener('touchmove', (e) => {
+                        if (e.touches.length === 2 && isZoomed) {
+                            const dist = Math.hypot(
+                                e.touches[0].pageX - e.touches[1].pageX,
+                                e.touches[0].pageY - e.touches[1].pageY
+                            );
+                            if (initialDistance > 0) {
+                                const ratio = dist / initialDistance;
+                                // Permitimos zoom extra con pinch (hasta 6x)
+                                const newScale = Math.min(Math.max(1, 3 * ratio), 6);
+                                img.style.transform = `scale(${newScale})`;
+
+                                // Pan during pinch
+                                const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+                                const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+                                const rect = wrapper.getBoundingClientRect();
+                                img.style.transformOrigin = `${((midX - rect.left) / rect.width) * 100}% ${((midY - rect.top) / rect.height) * 100}%`;
+                            }
+                        } else if (isZoomed) {
+                            if (e.cancelable) e.preventDefault();
+                            handleMove(e);
+                        }
+                    }, { passive: false });
+
+                    wrapper.addEventListener('touchend', (e) => {
+                        if (e.touches.length < 2) {
+                            initialDistance = -1;
+                        }
+
+                        const touchDuration = Date.now() - touchStartTime;
+                        if (touchDuration < 200) { // It's a tap
+                            if (isZoomed) zoomOut();
+                            else if (e.changedTouches && e.changedTouches.length > 0) {
+                                zoomIn(e.changedTouches[0]);
+                            }
+                        }
+                    });
+                });
+            };
+
+            // Carousel Logic
+            const initCarousels = () => {
+                const carousels = document.querySelectorAll('.product-carousel');
+                carousels.forEach(carousel => {
+                    const track = carousel.querySelector('.carousel-track');
+                    const slides = Array.from(track.children);
+                    const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
+                    let currentIndex = 0;
+                    let intervalId = null;
+
+                    const updateCarousel = (index) => {
+                        currentIndex = index;
+                        const offset = -currentIndex * 100;
+                        track.style.transform = `translateX(${offset}%)`;
+
+                        dots.forEach((dot, i) => {
+                            dot.classList.toggle('active', i === currentIndex);
+                        });
+                    };
+
+                    const nextSlide = () => {
+                        let nextIndex = (currentIndex + 1) % slides.length;
+                        updateCarousel(nextIndex);
+                    };
+
+                    const startAutoPlay = () => {
+                        stopAutoPlay();
+                        intervalId = setInterval(nextSlide, 3000); // 3 seconds
+                    };
+
+                    const stopAutoPlay = () => {
+                        if (intervalId) clearInterval(intervalId);
+                    };
+
+                    // Dots events
+                    dots.forEach(dot => {
+                        dot.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            const index = parseInt(dot.dataset.index);
+                            updateCarousel(index);
+                            startAutoPlay();
+                        });
+                    });
+
+                    // Swipe Events
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+
+                    carousel.addEventListener('touchstart', (e) => {
+                        touchStartX = e.changedTouches[0].screenX;
+                        stopAutoPlay();
+                    }, { passive: true });
+
+                    carousel.addEventListener('touchend', (e) => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        handleSwipe();
+                        startAutoPlay();
+                    }, { passive: true });
+
+                    const handleSwipe = () => {
+                        const swipeDistance = touchEndX - touchStartX;
+                        if (swipeDistance > 50) {
+                            // Swipe Right (Previous)
+                            let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                            updateCarousel(prevIndex);
+                        } else if (swipeDistance < -50) {
+                            // Swipe Left (Next)
+                            nextSlide();
+                        }
+                    };
+
+                    // Initial state
+                    startAutoPlay();
+                });
+            };
+
+            // Filter Logic
+            const filterProducts = () => {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                // If no filter selected and no search, show initial message
+                if (!currentFilter && !searchTerm) {
+                    productsContainer.innerHTML = `
+                        <div class="initial-message">
+                            <i data-lucide="mouse-pointer-click" style="width: 48px; height: 48px; margin-bottom: 1.5rem; color: var(--color-primary);"></i>
+                            <h3>Selecciona una categoría</h3>
+                            <p>Haz clic en los botones de arriba para explorar nuestro catálogo de productos.</p>
+                        </div>
+                    `;
+                    lucide.createIcons();
+                    return;
+                }
+
+                const filtered = productsData.filter(product => {
+                    const matchesCategory = !currentFilter || product.category === currentFilter;
+                    const matchesSearch = !searchTerm ||
+                        product.name.toLowerCase().includes(searchTerm) ||
+                        product.description.toLowerCase().includes(searchTerm) ||
+                        product.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+
+                    return matchesCategory && matchesSearch;
+                });
+
+                renderProducts(filtered);
+            };
+
+            // Event Listeners
+            categoryButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Toggle active class
+                    if (btn.classList.contains('active')) {
+                        btn.classList.remove('active');
+                        currentFilter = null;
+                    } else {
+                        categoryButtons.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        currentFilter = btn.dataset.category;
+                    }
+                    filterProducts();
+                    // Scroll to products if on mobile
+                    if (window.innerWidth < 768) {
+                        productsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            searchInput.addEventListener('input', filterProducts);
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+
+>>>>>>> cf3dbd9cbfc38fdc0655fd2db3d47a04242c3344
 </html>
