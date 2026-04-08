@@ -332,13 +332,13 @@ body.menu-open .top-bar {
 
 /* Adjust Main content to not be hidden behind fixed header */
 main {
-    padding-top: 155px;
+    padding-top: 146px;
     /* Default height for desktop (Top bar + Navbar) */
 }
 
 @media (max-width: 768px) {
     main {
-        padding-top: 155px;
+        padding-top: 146px;
     }
 }
 
@@ -361,7 +361,7 @@ main {
     /* Increased to fit larger logo */
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: none;
 }
 
 .navbar-container {
