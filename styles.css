@@ -1150,11 +1150,14 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 20px;
+    height: 20px;
 }
 
 .footer-social a i svg {
     width: 20px !important;
     height: 20px !important;
+    display: block;
 }
 
 .footer h4 {

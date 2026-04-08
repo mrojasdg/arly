@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize icons
+    lucide.createIcons();
+
     // Mobile Menu Toggle
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
