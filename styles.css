@@ -1936,3 +1936,10 @@ main {
         text-align: left;
     }
 }
+
+/* B2B Hero Section Specifc Styles */
+.hero.b2b-hero {
+    background: linear-gradient(rgb(5 23 65 / 85%), rgba(15, 23, 42, 0.85)), url('arly_warehouse_b2b_1772128417345.png');
+    background-size: cover;
+    background-position: center;
+}
