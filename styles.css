@@ -387,7 +387,7 @@ main {
         justify-content: center;
     }
 
-    .desktop-only {
+    .desktop-only, .nav-btn-mobile {
         justify-self: end;
     }
 }
