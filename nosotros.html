@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros - ARLY</title>
+    <meta name="description" content="Conoce la trayectoria de Organización ARLY, empresa mexicana con más de 30 años fabricando artículos escolares de pino seleccionado, aluminio anodizado y materiales seguros.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,10 +15,11 @@
         rel="stylesheet">
 
     <!-- Icons (Lucide) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://unpkg.com">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <link rel="icon" type="image/png" href="favicon.png">
-
+    <link rel="preload" as="image" href="images/hero-bg.jpg">
     <link rel="stylesheet" href="styles.css?v=1.2">
 </head>
 
@@ -105,7 +107,7 @@
                     </div>
                     <div class="about-image-wrapper">
                         <img src="images/ninaconregla.jpg" alt="Proceso de fabricación Arly" class="about-mascot"
-                            style="max-width: 80%; border-radius: 30px; box-shadow: var(--shadow-hover); transform: rotate(-1deg);">
+                            style="max-width: 80%; border-radius: 30px; box-shadow: var(--shadow-hover); transform: rotate(-1deg);" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -248,7 +250,7 @@
     <footer id="contacto" class="footer">
         <div class="container footer-grid">
             <div class="footer-brand">
-                <img src="images/logo-arly.png" alt="ARLY Logo" class="footer-logo">
+                <img src="images/logo-arly.png" alt="ARLY Logo" class="footer-logo" loading="lazy">
                 <p>Organización ARLY S.A. de C.V. - Más de 30 años fabricando productos escolares y de oficina de
                     calidad. 100% Mexicano.</p>
                 <div class="footer-social">

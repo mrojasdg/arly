@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARLY - Artículos Escolares y de Oficina</title>
+    <meta name="description" content="Organización ARLY es líder en la fabricación y distribución de artículos escolares y de oficina en México. Pizarrones, borradores, reglas de madera y aluminio de alta calidad.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,9 +15,11 @@
         rel="stylesheet">
 
     <!-- Icons (Lucide) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://unpkg.com">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preload" as="image" href="images/hero-products.png">
     <link rel="stylesheet" href="styles.css?v=1.2">
 </head>
 
@@ -120,7 +123,7 @@
 
                 <div class="about-content">
                     <div class="about-image-wrapper">
-                        <img src="images/mascot-arly.png" alt="Mascota Arly" class="about-mascot">
+                        <img src="images/mascot-arly.png" alt="Mascota Arly" class="about-mascot" loading="lazy">
                     </div>
                     <div class="about-text">
                         <h3>Organización ARLY S.A. de C.V.</h3>
@@ -263,7 +266,7 @@
                     <!-- Category 1: Pizarrones -->
                     <div class="category-card">
                         <div class="category-img-wrapper">
-                            <img src="images/cat-pizarrones.png" alt="Pizarrones" class="category-img">
+                            <img src="images/cat-pizarrones.png" alt="Pizarrones" class="category-img" loading="lazy">
                         </div>
                         <div class="category-body">
                             <h3 class="category-name">Línea de Pizarrones</h3>
@@ -280,7 +283,7 @@
                     <!-- Category 2: Línea de Madera -->
                     <div class="category-card">
                         <div class="category-img-wrapper">
-                            <img src="images/cat-madera.png" alt="Línea de Madera" class="category-img">
+                            <img src="images/cat-madera.png" alt="Línea de Madera" class="category-img" loading="lazy">
                         </div>
                         <div class="category-body">
                             <h3 class="category-name">Línea de Madera</h3>
@@ -298,7 +301,7 @@
                     <!-- Category 3: Línea de Aluminio -->
                     <div class="category-card">
                         <div class="category-img-wrapper">
-                            <img src="images/cat-aluminio.png" alt="Línea de Aluminio" class="category-img">
+                            <img src="images/cat-aluminio.png" alt="Línea de Aluminio" class="category-img" loading="lazy">
                         </div>
                         <div class="category-body">
                             <h3 class="category-name">Línea de Aluminio</h3>
@@ -409,7 +412,7 @@
     <footer id="contacto" class="footer">
         <div class="container footer-grid">
             <div class="footer-brand">
-                <img src="images/logo-arly.png" alt="ARLY Logo" class="footer-logo">
+                <img src="images/logo-arly.png" alt="ARLY Logo" class="footer-logo" loading="lazy">
                 <p>Organización ARLY S.A. de C.V. - Más de 30 años fabricando productos escolares y de oficina de
                     calidad. 100% Mexicano.</p>
                 <div class="footer-social">
@@ -475,7 +478,7 @@
         </div>
         <div class="footer-bottom">
             <div class="container bottom-content">
-                <img src="images/logo-arly.png" alt="ARLY Logo" class="footer-bottom-logo">
+                <img src="images/logo-arly.png" alt="ARLY Logo" class="footer-bottom-logo" loading="lazy">
                 <p>&copy; 2026 Organización ARLY S.A. de C.V. Todos los derechos reservados.</p>
                 <p class="made-in">Hecho en <span class="flag-mx">MX</span> México</p>
             </div>

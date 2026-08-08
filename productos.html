@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos - ARLY</title>
+    <meta name="description" content="Explora nuestro catálogo de productos ARLY. Líneas de madera, pizarrones blancos y verdes, reglas de aluminio, rotafolios, borradores y nuestra línea ecológica.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +18,8 @@
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Icons (Lucide) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://unpkg.com">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <link rel="stylesheet" href="styles.css?v=1.2">
     <style>
@@ -523,7 +525,7 @@
     <footer id="contacto" class="footer">
         <div class="container footer-grid">
             <div class="footer-brand">
-                <img src="images/logo-arly.png" alt="ARLY Logo" class="footer-logo">
+                <img src="images/logo-arly.png" alt="ARLY Logo" class="footer-logo" loading="lazy">
                 <p>Organización ARLY S.A. de C.V. - Más de 30 años fabricando productos escolares y de oficina de
                     calidad. 100% Mexicano.</p>
                 <div class="footer-social">
@@ -1162,7 +1164,7 @@
                             <div class="carousel-track">
                                 ${product.images.map(img => `
                                     <div class="carousel-slide">
-                                        <img src="${img}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">
+                                        <img src="${img}" alt="${product.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">
                                     </div>
                                 `).join('')}
                             </div>
@@ -1173,7 +1175,7 @@
                             </div>
                         </div>
                     ` : `
-                        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">
                     `;
 
                     return `
